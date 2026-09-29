@@ -124,4 +124,150 @@ Para permitir o acesso através da rede local, foi necessário configurar o Post
 
 Entre as principais configurações estão:
 
+```text
+postgresql.conf
 ```
+
+Configurando o PostgreSQL para escutar conexões externas:
+
+```conf
+listen_addresses = '*'
+```
+
+E no arquivo:
+
+```text
+pg_hba.conf
+```
+
+É necessário autorizar o acesso da rede local.
+
+Exemplo:
+
+```conf
+host    all    all    192.168.0.0/24    scram-sha-256
+```
+
+> As configurações podem variar de acordo com a rede e com o sistema operacional utilizado.
+
+## 📂 Estrutura sugerida
+
+```text
+postgresql-homelab-python/
+│
+├── src/
+│   ├── conexao.py
+│   └── consultas.py
+│
+├── sql/
+│   └── consultas.sql
+│
+├── .env.example
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+## 📦 Instalação
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/postgresql-homelab-python.git
+```
+
+Entre na pasta:
+
+```bash
+cd postgresql-homelab-python
+```
+
+Crie um ambiente virtual:
+
+```bash
+python -m venv .venv
+```
+
+Ative o ambiente virtual no Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+Instale as dependências:
+
+```bash
+pip install psycopg2-binary python-dotenv
+```
+
+Ou:
+
+```bash
+pip install -r requirements.txt
+```
+
+## 📄 requirements.txt
+
+```text
+psycopg2-binary
+python-dotenv
+```
+
+## 🚫 .gitignore
+
+É recomendado adicionar ao `.gitignore`:
+
+```gitignore
+.env
+.venv/
+__pycache__/
+*.pyc
+```
+
+Isso evita o envio de informações sensíveis e arquivos desnecessários para o repositório.
+
+## 📚 Conhecimentos praticados
+
+Durante o desenvolvimento deste projeto, pratiquei conceitos relacionados a:
+
+- PostgreSQL
+- SQL
+- Python
+- Conexão Python com banco de dados
+- Cliente e servidor
+- Redes locais
+- Endereçamento IP
+- Administração básica de banco de dados
+- Acesso remoto
+- Variáveis de ambiente
+- Segurança de credenciais
+
+## 🎯 Objetivo
+
+Este projeto faz parte dos meus estudos em Ciência de Dados e tem como objetivo desenvolver experiência prática com bancos de dados, Python e infraestrutura.
+
+A proposta foi ir além da execução de consultas SQL localmente, construindo um ambiente no qual o banco de dados é executado em outro dispositivo e acessado através da rede.
+
+## 🔮 Próximos passos
+
+Como evolução do projeto, pretendo implementar:
+
+- Operações CRUD completas
+- Criação de múltiplas tabelas relacionadas
+- Joins e consultas mais avançadas
+- Views no PostgreSQL
+- Stored Procedures
+- Integração com Pandas
+- Análise dos dados utilizando Python
+- Criação de uma API para acesso ao banco
+- Dockerização do ambiente
+- Backup automatizado do PostgreSQL
+
+## 👨‍💻 Autor
+
+**João Pedro Ramiro**
+
+Estudante de Ciência de Dados.
+
+- GitHub: https://github.com/joaopedroramiro321-source
+- LinkedIn: https://www.linkedin.com/in/joaopedroramiro/
